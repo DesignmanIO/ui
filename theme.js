@@ -1,7 +1,6 @@
 import {
   Dimensions,
   StyleSheet,
-  NavigationExperimental,
   Platform,
   StatusBar,
 } from 'react-native';
@@ -18,7 +17,6 @@ import {
 const window = Dimensions.get('window');
 
 const STATUS_BAR_OFFSET = (Platform.OS === 'android' ? -StatusBar.currentConfig : 0);
-const NAVIGATION_BAR_HEIGHT = NavigationExperimental.Header.HEIGHT;
 
 export const sizeVariants = ['', 'left', 'right', 'top', 'bottom', 'horizontal', 'vertical'];
 export const textComponents = [
@@ -87,6 +85,7 @@ export const defaultThemeVariables = {
   tagOverlayColor: 'rgba(0, 0, 0, 0.7)',
   tagOverlayTextColor: '#FFFFFF',
 
+  navBarHeight: Platform.OS === 'android' ? 56 : 44,
   navBarBackground: '#FFFFFF',
   navBarBorderColor: '#f2f2f2',
   navBarText: {
@@ -642,7 +641,7 @@ export default (variables = defaultThemeVariables) => ({
 
   'shoutem.ui.Screen': {
     '.full-screen': {
-      marginTop: -(NAVIGATION_BAR_HEIGHT + StyleSheet.hairlineWidth),
+      marginTop: -(variabls.navBarHeight + StyleSheet.hairlineWidth),
     },
 
     '.paper': {
@@ -1452,7 +1451,7 @@ export default (variables = defaultThemeVariables) => ({
     },
 
     container: {
-      paddingTop: NAVIGATION_BAR_HEIGHT,
+      paddingTop: variabls.navBarHeight,
       backgroundColor: variables.navBarBackground,
       borderBottomColor: variables.navBarBorderColor,
       borderBottomWidth: StyleSheet.hairlineWidth,
@@ -1462,7 +1461,7 @@ export default (variables = defaultThemeVariables) => ({
       top: 0,
       left: 0,
       right: 0,
-      height: NAVIGATION_BAR_HEIGHT,
+      height: variabls.navBarHeight,
     },
   },
 
