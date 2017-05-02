@@ -641,7 +641,7 @@ export default (variables = defaultThemeVariables) => ({
 
   'shoutem.ui.Screen': {
     '.full-screen': {
-      marginTop: -(variabls.navBarHeight + StyleSheet.hairlineWidth),
+      marginTop: -(variables.navBarHeight + StyleSheet.hairlineWidth),
     },
 
     '.paper': {
@@ -1451,7 +1451,7 @@ export default (variables = defaultThemeVariables) => ({
     },
 
     container: {
-      paddingTop: variabls.navBarHeight,
+      paddingTop: variables.navBarHeight,
       backgroundColor: variables.navBarBackground,
       borderBottomColor: variables.navBarBorderColor,
       borderBottomWidth: StyleSheet.hairlineWidth,
@@ -1461,7 +1461,7 @@ export default (variables = defaultThemeVariables) => ({
       top: 0,
       left: 0,
       right: 0,
-      height: variabls.navBarHeight,
+      height: variables.navBarHeight,
     },
   },
 
