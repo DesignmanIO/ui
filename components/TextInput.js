@@ -17,6 +17,7 @@ class TextInput extends Component {
     return (
       <RNTextInput
         {...props}
+        ref={(input) => inputRef(input)}
         style={style}
         placeholderTextColor={props.style.placeholderTextColor}
         selectionColor={props.style.selectionColor}
@@ -29,6 +30,7 @@ class TextInput extends Component {
 TextInput.propTypes = {
   ...RNTextInput.propTypes,
   style: React.PropTypes.object,
+  inputRef: React.PropTypes.func,
 };
 
 const AnimatedTextInput = connectAnimation(TextInput);
