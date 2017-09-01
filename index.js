@@ -1,10 +1,10 @@
 import { setDefaultThemeStyle } from './init';
-import getTheme, { defaultThemeVariables } from './theme';
+import getTheme, { defaultThemeVariables, dimensionRelativeToIphone } from './theme';
 
 setDefaultThemeStyle();
 
 // Theme
-export { getTheme, defaultThemeVariables };
+export { getTheme, defaultThemeVariables, dimensionRelativeToIphone };
 
 // Components
 export { View } from './components/View';
@@ -12,7 +12,7 @@ export { Screen } from './components/Screen';
 
 export { NavigationBar } from './components/NavigationBar';
 export { NavigationBarAnimations } from './components/NavigationBar/NavigationBarAnimations';
-export { DropDownMenu } from './components/DropDownMenu';
+export { DropDownMenu, DropDownModal } from './components/DropDownMenu';
 export { Overlay } from './components/Overlay';
 
 export { ScrollView } from './components/ScrollView';

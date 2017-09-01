@@ -143,7 +143,9 @@ class ListView extends React.Component {
    */
   getPropsToPass() {
     const props = this.props;
-    const mappedProps = _.omit(_.pick(props, scrollViewProps), ['style']);
+    const mappedProps = {
+      ...props,
+    };
 
     // configuration
     // default load more threshold
@@ -315,6 +317,24 @@ const StyledListView = connectStyle('shoutem.ui.ListView', {
     paddingVertical: 25,
   },
 })(ListView);
+
+function getRNListViewComponent(context) {
+  return _.get(context, 'wrappedInstance.listView');
+}
+
+StyledListView.prototype.scrollTo = function scrollTo(coordinates) {
+  const listView = getRNListViewComponent(this);
+  if (listView) {
+    listView.scrollTo(coordinates);
+  }
+};
+
+StyledListView.prototype.scrollToEnd = function scrollToEnd(animation) {
+  const listView = getRNListViewComponent(this);
+  if (listView) {
+    listView.scrollToEnd(animation);
+  }
+};
 
 export {
   StyledListView as ListView,
