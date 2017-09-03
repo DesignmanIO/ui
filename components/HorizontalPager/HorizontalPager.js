@@ -249,7 +249,7 @@ class HorizontalPager extends Component {
           width={pageWidth}
           style={style.page}
         >
-          {renderPage(pageData, pageIndex, { width, height })}
+          {renderPage(pageData, pageIndex, { width, height, scrollToPage: this.scrollToPage })}
         </Page>
       );
 
