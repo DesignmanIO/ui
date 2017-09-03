@@ -91,7 +91,6 @@ class HorizontalPager extends Component {
     this.onHorizontalScroll = this.onHorizontalScroll.bind(this);
     this.onLayoutContainer = this.onLayoutContainer.bind(this);
     this.onScrollViewRef = this.onScrollViewRef.bind(this);
-    this.scrollToPage = this.scrollToPage.bind(this);
   }
 
   componentDidMount() {
@@ -104,7 +103,7 @@ class HorizontalPager extends Component {
   componentWillReceiveProps(nextProps) {
     const { selectedIndex } = this.state;
 
-    if (this.props.scrollEnabled && !nextProps.scrollEnabled) {
+    if ((this.props.scrollEnabled && !nextProps.scrollEnabled) || (this.props.selectedIndex !== nextProps.selectedIndex)) {
       this.scrollToPage(selectedIndex);
     }
   }
@@ -250,7 +249,7 @@ class HorizontalPager extends Component {
           width={pageWidth}
           style={style.page}
         >
-          {renderPage(pageData, pageIndex, { width, height, scrollToPage: this.scrollToPage })}
+          {renderPage(pageData, pageIndex, { width, height })}
         </Page>
       );
 
