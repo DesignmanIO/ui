@@ -91,6 +91,7 @@ class HorizontalPager extends Component {
     this.onHorizontalScroll = this.onHorizontalScroll.bind(this);
     this.onLayoutContainer = this.onLayoutContainer.bind(this);
     this.onScrollViewRef = this.onScrollViewRef.bind(this);
+    this.scrollToPage = this.scrollToPage.bind(this);
   }
 
   componentDidMount() {
