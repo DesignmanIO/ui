@@ -29,7 +29,7 @@ class Button extends Component {
           underlayColor={this.props.style.underlayColor}
         />
       );
-    } else 
+    }
   }
 }
 
