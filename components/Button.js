@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 
 import { connectStyle } from '@shoutem/theme';
@@ -15,13 +16,20 @@ class Button extends Component {
     };
     delete style.underlayColor;
 
-    return (
-      <TouchableOpacity
+    if (Platform.OS === 'android'){
+      <TouchableNativeFeedback
         {...this.props}
         style={style}
-        underlayColor={this.props.style.underlayColor}
       />
-    );
+    } else {
+      return (
+        <TouchableOpacity
+          {...this.props}
+          style={style}
+          underlayColor={this.props.style.underlayColor}
+        />
+      );
+    } else 
   }
 }
 
